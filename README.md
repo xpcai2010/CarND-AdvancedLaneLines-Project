@@ -24,7 +24,7 @@ The goals / steps of this project are the following:
 [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
-[image7]: ./output_images/Camera_Calibration_Chessboard.jpg "Camera Calibration"
+[image0]: ./output_images/Camera_Calibration_Chessboard.JPG "Camera Calibration"
 [image8]: ./output_images/Distortion_Corrected_Image.JPG "Distortion Correction Image"
 [image9]: ./output_images/Combined_Binary_Image.JPG "Combined Binary Image"
 [image10]: ./output_images/Perspective_Tranform_Image_1.JPG "Perspective Image"
@@ -52,7 +52,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained the result.
 
-![alt text][image7]
+![alt text][image0]
 
 ### Pipeline (single images)
 
