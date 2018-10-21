@@ -46,7 +46,7 @@ The goals / steps of this project are the following:
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
-The code for this step is contained in the second and third code cell as a function of `cal_undistort(img)` of the IPython notebook located in "./Advanced Lane Finding Project_XCai.ipynb".  
+The code for this step is contained in the second and third code cell as a function of `cal_undistort(img)` of the IPython notebook located in "./Advanced Lane Finding Project_Completed".  
 
 I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
 
@@ -71,14 +71,14 @@ You can notice the difference at the left and right bottom corners in the image.
 
 I used a combination of color (one is based on HLS' S value and the other is based on HSV's V value) and gradient thresholds (Sobel X absolute value) to generate a binary image (thresholding steps are in function `color_hls_thresh(img, s_thresh=(0, 255))`, `color_hsv_thresh(img, v_thresh=(0, 255))` and `abs_sobel_thresh(img, orient='x', thresh_min=0, thresh_max=255)`). I also applied the region of interest function from the first project (`region_of_interest(img, vertices)`) to help me narrow the range of lane feature detection. At the end, I applied a mask combination (`mask_apply(img)`) with different masking combination and threshold aiming different images from the videos. We have two testing videos - project_video.mp4 and challenge_video.mp4. I have to make some adjustment in order to work both images.  Here's an example of my output for this step.  (note: this is not actually from one of the test images).
 
-The detail on how I pick up the above lane feature detection is in my uploaded code: `Advanced Lane Finding Project_XCai.ipynb`.
+The detail on how I pick up the above lane feature detection is in my uploaded code: `Advanced Lane Finding Project_Completed.ipynb`.
 
 ![alt text][image9]
 
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `perspective_transform(img)`. You can find the function in my uploaded code `Advanced Lane Finding Project_XCai.ipynb`. The `perspective_transform(img)` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `perspective_transform(img)`. You can find the function in my uploaded code `Advanced Lane Finding Project_Completed.ipynb`. The `perspective_transform(img)` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
 ```python
 src = np.float32(
@@ -122,7 +122,7 @@ Then I followed the steps from the course:
 ###### d) Iterate through nwindows to track curvature
 ###### e) Fit a polynomial after we have found all our pixels belonging to each line through the sliding window method
 
-I did this in function `find_lane_pixels(binary_warped)` and `fit_polynomial(binary_warped)` in my uploaded code `Advanced Lane Finding Project_XCai.ipynb`.
+I did this in function `find_lane_pixels(binary_warped)` and `fit_polynomial(binary_warped)` in my uploaded code `Advanced Lane Finding Project_Completed.ipynb`.
 
 ![alt text][image12]
 
@@ -161,7 +161,7 @@ Finally, I defined line drawing function `draw_line_polygon(out_img, left_line_p
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  
 
-In the beginning, I had developed a lane detection feature, which had been working well for the first testing video - project_video.mp4. However, when I had applied the same pipeline to the second video - challenge_video.mp4, it did a poor job for the lane detection. Then I had to go back to retune the lane feature masking method. Also I optimized the sanity check code as well as smoothing method. At the end, the uploaded code `Advanced Lane Finding Project_XCai.ipynb` works pretty well for both videos. There is still room to improve if I get more time on the project. For example, by adding different lane detection feature for images with different brightness, saturation values.
+In the beginning, I had developed a lane detection feature, which had been working well for the first testing video - project_video.mp4. However, when I had applied the same pipeline to the second video - challenge_video.mp4, it did a poor job for the lane detection. Then I had to go back to retune the lane feature masking method. Also I optimized the sanity check code as well as smoothing method. At the end, the uploaded code `Advanced Lane Finding Project_Completed.ipynb` works pretty well for both videos. There is still room to improve if I get more time on the project. For example, by adding different lane detection feature for images with different brightness, saturation values.
 
 
 #### 2. Where will your pipeline likely fail?  What could you do to make it more robust?
